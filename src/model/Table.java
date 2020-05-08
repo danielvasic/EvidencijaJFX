@@ -67,6 +67,7 @@ public class Table {
         }
 
         index = 0;
+        int numForeignKeys = 0;
         for (Field field : fields){
             String fieldName = getAttributeName(field);
             ForeignKey foreignKey = field.getAnnotation(ForeignKey.class);
@@ -74,9 +75,12 @@ public class Table {
             if (foreignKey != null){
                 String refTableName = foreignKey.table();
                 String refAttrName = foreignKey.attribute();
+                numForeignKeys++;
+                if (numForeignKeys == 1) CREATE_SQL_QUERY.append(",");
 
-                CREATE_SQL_QUERY.append(",CONSTRAINT ").append(tableName)
-                        .append("_").append(refTableName).append("_FK")
+                CREATE_SQL_QUERY.append("CONSTRAINT ").append(tableName)
+                        .append("_").append(refTableName).append("_FK_").append(numForeignKeys)
+                        .append("_").append(fieldName)
                         .append(" FOREIGN KEY (").append(fieldName)
                         .append(") REFERENCES ").append(refTableName).append("(")
                         .append(refAttrName).append(")");
@@ -86,6 +90,7 @@ public class Table {
             }
         }
         CREATE_SQL_QUERY.append(")COLLATE=utf8mb4_unicode_ci;");
+        System.out.println(CREATE_SQL_QUERY);
         return Database.CONNECTION.createStatement().execute(CREATE_SQL_QUERY.toString());
     }
 

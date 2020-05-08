@@ -17,6 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Table.create(Course.class);
         /*
 
         Table.create(Teacher.class);
