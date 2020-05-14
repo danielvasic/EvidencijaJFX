@@ -6,10 +6,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.Teacher;
 
 import java.io.IOException;
 
 public class Login {
+    public static Teacher loggedInTeacher;
+
     @FXML
     Button prijaviSeBtn;
 
@@ -38,12 +41,21 @@ public class Login {
             uspjehLbl.setVisible(true);
 
             try {
-                Main.showWindow(
-                        getClass(),
-                        "../view/Admin.fxml",
-                        "Dobrodošli u administraciju", 600, 400
-                );
-            } catch (IOException e) {
+                Login.loggedInTeacher = Teacher.login(korisnickoIme, lozinka);
+                if (Login.loggedInTeacher != null) {
+                    Main.showWindow(
+                            getClass(),
+                            "../view/Admin.fxml",
+                            "Welcome to administration", 600, 400
+                    );
+                } else {
+                    greskaLbl.setText("Unesite ispravne korisničke podatke");
+                    greskaLbl.setVisible(true);
+                    uspjehLbl.setVisible(false);
+                }
+
+            } catch (Exception e) {
+                System.out.println("Nastala je greška " + e.getMessage());
                 e.printStackTrace();
             }
         }

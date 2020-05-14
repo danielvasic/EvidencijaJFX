@@ -17,9 +17,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Table.create(Course.class);
-        /*
 
+        /*
+        Table.create(Course.class);
         Table.create(Teacher.class);
         Table.create(Course.class);
 
@@ -45,7 +45,7 @@ public class Main extends Application {
         Main.showWindow(
                 getClass(),
                 "../view/Login.fxml",
-                "Prijavte se na sustav", 600, 215);
+                "Login to system", 600, 215);
     }
 
     public static void showWindow(Class windowClass, String viewName, String title, int w, int h) throws IOException {
