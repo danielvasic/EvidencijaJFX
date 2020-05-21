@@ -84,13 +84,15 @@ public class Table {
                         .append(" FOREIGN KEY (").append(fieldName)
                         .append(") REFERENCES ").append(refTableName).append("(")
                         .append(refAttrName).append(")");
+                System.out.println(index);
+                System.out.println(fields.length);
                 if (index < fields.length)
                     CREATE_SQL_QUERY.append(",");
                 CREATE_SQL_QUERY.append("\n");
             }
         }
         CREATE_SQL_QUERY.append(")COLLATE=utf8mb4_unicode_ci;");
-        System.out.println(CREATE_SQL_QUERY);
+
         return Database.CONNECTION.createStatement().execute(CREATE_SQL_QUERY.toString());
     }
 

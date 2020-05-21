@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="134.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="467.0" minWidth="10.0" prefWidth="466.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="153.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="467.0" minWidth="10.0" prefWidth="315.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
     <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -23,19 +24,15 @@
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding></Label>
-      <Label text="Unesite lozinku" GridPane.rowIndex="2">
+      <Label prefHeight="37.0" prefWidth="150.0" text="Unesite lozinku" GridPane.rowIndex="2">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding></Label>
-      <TextField fx:id="korisnickoImeTxt" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <TextField fx:id="korisnickoImeTxt" styleClass="input" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin></TextField>
-      <TextField fx:id="lozinkaTxt" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </GridPane.margin></TextField>
-      <Button fx:id="prijaviSeBtn" mnemonicParsing="false" onAction="#prijaviSe" text="Prijavi se" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="prijaviSeBtn" mnemonicParsing="false" onAction="#prijaviSe" styleClass="btn" stylesheets="@style.css" text="Prijavi se" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin></Button>
@@ -60,5 +57,13 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
+      <PasswordField fx:id="lozinkaTxt" prefHeight="27.0" prefWidth="450.0" styleClass="input" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" />
+         </GridPane.margin>
+      </PasswordField>
    </children>
 </GridPane>

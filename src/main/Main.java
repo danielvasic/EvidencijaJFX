@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Course;
-import model.Table;
-import model.Teacher;
+import model.*;
 
 import java.io.IOException;
 
@@ -17,8 +15,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
         /*
+
         Table.create(Course.class);
         Table.create(Teacher.class);
         Table.create(Course.class);
