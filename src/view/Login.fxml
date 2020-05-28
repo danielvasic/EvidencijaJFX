@@ -9,14 +9,14 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="214.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Login">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="153.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="467.0" minWidth="10.0" prefWidth="315.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="144.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="467.0" minWidth="10.0" prefWidth="324.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
+      <RowConstraints />
+    <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
     <RowConstraints maxHeight="201.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
@@ -30,17 +30,12 @@
          </padding></Label>
       <TextField fx:id="korisnickoImeTxt" styleClass="input" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets left="10.0" right="10.0" />
          </GridPane.margin></TextField>
       <Button fx:id="prijaviSeBtn" mnemonicParsing="false" onAction="#prijaviSe" styleClass="btn" stylesheets="@style.css" text="Prijavi se" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin></Button>
-      <Label text="Dobrodošli na sustav" GridPane.columnIndex="1">
-         <font>
-            <Font name="Arial Bold" size="24.0" />
-         </font>
-      </Label>
       <Label fx:id="greskaLbl" text="Molimo unesite vaše korisničke podatke" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <font>
             <Font name="Arial Black" size="14.0" />
@@ -58,9 +53,6 @@
          </padding>
       </Label>
       <PasswordField fx:id="lozinkaTxt" prefHeight="27.0" prefWidth="450.0" styleClass="input" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
-         <padding>
-            <Insets left="10.0" right="10.0" />
-         </padding>
          <GridPane.margin>
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>

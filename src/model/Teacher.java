@@ -1,8 +1,12 @@
 package model;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /* Klasa nesmije imati konstruktor */
 /* Klasa mora imati get i set metode za sve atribute*/
@@ -21,6 +25,24 @@ public class Teacher extends Table {
 
     @Entity(type = "VARCHAR", size = 256, isnull = false)
     String password;
+
+    @Entity(type="BLOB", size=10000000, isnull = false)
+    SerialBlob teacherImage;
+
+
+    /* Radi prikaza u tablici moramo vratiti od SerialBlob-a sliku */
+    public ImageView getTeacherImage() {
+        try{
+            return new ImageView(new Image(teacherImage.getBinaryStream()));
+        } catch (Exception e) {
+            return null;
+        }
+
+    }
+
+    public void setTeacherImage(SerialBlob teacherImage) {
+        this.teacherImage = teacherImage;
+    }
 
     public String getFirstname() {
         return firstname;

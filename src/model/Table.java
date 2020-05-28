@@ -1,5 +1,6 @@
 package model;
 
+import javax.sql.rowset.serial.SerialBlob;
 import java.lang.reflect.Field;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -184,7 +185,12 @@ public class Table {
             Object obj = Class.forName(cls.getName()).newInstance();
             Class<?> otherCls = obj.getClass();
             for (Field f : otherCls.getDeclaredFields()){
-                f.set(obj, rs.getObject(f.getName()));
+                if (SerialBlob.class.isAssignableFrom(f.getType())) {
+                    if (rs.getBlob(f.getName()) != null)
+                        f.set(obj, new SerialBlob(rs.getBlob(f.getName())));
+                } else {
+                    f.set(obj, rs.getObject(f.getName()));
+                }
             }
             return obj;
         } else {
@@ -203,7 +209,12 @@ public class Table {
             Object obj = Class.forName(cls.getName()).newInstance();
             Class<?> otherCls = obj.getClass();
             for (Field f : otherCls.getDeclaredFields()){
-                f.set(obj, rs.getObject(f.getName()));
+                if (SerialBlob.class.isAssignableFrom(f.getType())) {
+                    if (rs.getBlob(f.getName()) != null)
+                        f.set(obj, new SerialBlob(rs.getBlob(f.getName())));
+                } else {
+                    f.set(obj, rs.getObject(f.getName()));
+                }
             }
             list.add(obj);
         }

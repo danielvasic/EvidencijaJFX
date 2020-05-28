@@ -15,12 +15,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        /*
 
-        Table.create(Course.class);
         Table.create(Teacher.class);
         Table.create(Course.class);
-
+        /*
         Teacher daniel = new Teacher();
         daniel.setFirstname("Daniel");
         daniel.setLastname("Vasic");
@@ -28,13 +26,14 @@ public class Main extends Application {
         daniel.setPassword("1234");
         daniel.save();
 
+
         Teacher t = (Teacher) Teacher.get(Teacher.class, 1);
         t.setLastname("Vasić");
         t.update();
 
         Teacher t = (Teacher) Teacher.get(Teacher.class, 1);
         t.delete();
-         */
+        */
 
 
 
